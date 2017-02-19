@@ -9,8 +9,13 @@ Arquivos Necessários:
 - config_inicial.sh - Shell script que automatiza a instalação dos softwares necessários ao ambiente, bem como algumas configurações das VMs.
 
 Procedimento de configuracao do ambiente:
- - Faça o download dos arquivos do repositório https://github.com/igormoraisazevedo/pi3/vagrant
+ - Faça o download dos arquivos do repositório https://github.com/igormoraisazevedo/pi3/tree/master/vagrant
  - Instale o Vagrant e o VirtualBox
- - Acesse o dieretório onde estão os arquivos do repositório
- - Execute o comando: vagrant up
- - Depois execute o comando: vagrant provision
+ - Acesse o diretório onde estão os arquivos do repositório
+ - Execute o comando: *vagrant up*
+ - Depois execute o comando: *vagrant provision*
+ - Para acessar as VMs: *vagrant ssh nome_da_vm*
+
+Executado o procedimento acima, será criado no VirtualBox duas VMs:
+ - Homologação: 192.168.10.10
+ - Produção: 192.168.10.20
