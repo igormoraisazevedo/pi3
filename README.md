@@ -1,2 +1,5 @@
 # pi3
 Neste repositório conterá todos os arquivos e procedimentos necessários para subir o ambiente de Virtualização e de Containers a ser utilizado na Disciplina Projeto Integrador III.
+
+Listagem de Diretórios:
+ - vagrant: *Arquivos e procedimentos para a configuração do vagrant e o provisionamento das VMs do Ambiente.*
