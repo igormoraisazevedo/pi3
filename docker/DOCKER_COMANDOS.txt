@@ -1,0 +1,108 @@
+# Consultar imagens nos repositórios
+    
+    docker search <termo da pesquisa>
+
+    Exemplo:
+        docker search ubuntu
+
+
+# Download de Imagem de um Repositório
+    
+    docker image pull <nome da imagem>:TAG
+    
+    Exemplo:
+        docker image pull ubuntu
+
+OBS:
+----
+    Por default, a TAG utilizada pelo docker é "latest", ou seja, a mais recente.
+
+
+# Listar as Imagens locais
+    
+    docker images
+
+
+# Criar um container a partir de uma imagem
+        
+    docker container create -t -i --name <nome do container> <imagem:TAG> <COMANDO>
+       
+        Onde:
+            -t: reservar um terminal para o container
+            -i: interagir com o container
+
+    Exemplo:
+        docker container create -i -t --name homologacao ubuntu /bin/bash 
+
+    OBS:
+    ----
+        <CTRL> + <P> +<Q> : sai do container sem interromper sua execução
+
+
+# Iniciar um Container já criado
+    
+    docker container start -i <nome do container ou ID>
+        
+        Onde:
+            -i: interagir com o container
+    
+    Exemplo:
+        docker container start -i homologacao
+    
+    OBS:
+    ----
+        <CTRL> + <P> +<Q> : sai do container sem interromper sua execução
+
+
+# Parar um Container
+
+    docker container stop <nome do container ou ID>
+    
+    Exemplo:
+        docker stop homologacao
+
+
+# Salvar um Container como Imagem  (persistência das mudanças do container)
+
+    docker container commit -a "Autor" <nome do container> <repositorio:TAG>
+    
+    Exemplo:
+        docker container commit -a "Igor Azevedo <igormorais.azevedo@gmail.com>" homologacao homologacao:v1
+        
+        
+
+##########################        
+# Utilizando Dockerfiles #
+##########################
+
+ - Crie uma pasta
+    # mkdir ~/docker/webserver
+
+ - Acesse a pasta criada
+    # cd ~docker/webserver
+
+ - Crie o arquivo Dockerfile
+ 
+ - Para realizar o build da imagem customizada a partir do Dockerfile
+    # docker build -t <nome_da_imagem:TAG> .
+        
+        OBS:
+        ----
+            O último parâmetro (.) do comando indica o contexto de execução do container. No caso acima, o contexto de execução será o diretório onde está o Dockerfile. Assim, qualquer arquivo neste diretório poderá ser acessado pelo container.
+        
+ - Para criar o container a partir da imagem customizada
+    # docker container create -ti --name webserver -p 80:80 -p 443:443 webserver:v1
+    
+        Onde:
+            -p <Porta_Host:Porta_Container> - Expor a porta do serviço oferecido pelo container no host
+
+ - Para iniciar o container:
+    # docker container start webserver
+
+ - Para testar o serviço:
+    - Acesse o navegador e digite: ip_do_host:porta
+ 
+
+
+
+    
