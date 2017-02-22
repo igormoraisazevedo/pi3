@@ -1,4 +1,4 @@
-# Pasta Vagrant
+# Diretório Vagrant
 Arquivos para a configuração do Vagrant, no intuito de subir duas VMs no VirtuaBox que simularão os ambientes de Homologação e Produção.
 
 Softwares Necessários:
