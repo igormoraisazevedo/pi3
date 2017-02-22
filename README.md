@@ -3,3 +3,4 @@ Neste repositório conterá todos os arquivos e procedimentos necessários para 
 
 Listagem de Diretórios:
  - vagrant: *Arquivos e procedimentos para a configuração do vagrant e o provisionamento das VMs do Ambiente.*
+ - docker: *Arquivos e procedimentos para a configuração do docker e o provisionamento dos containers do Ambiente.*
