@@ -99,3 +99,9 @@ chmod +x /usr/local/bin/docker-compose
 
 # Instalando o Bash Completion do Docker Compose
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+
+echo -e "\n#############################################################" >> $LOG
+echo "####### Reiniciando a VM para efetivar as alterações  #######" >> $LOG
+echo -e "#############################################################\n" >> $LOG
+
+sudo shutdown -r now
