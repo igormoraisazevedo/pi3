@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# VM do Gerenciador do Cluster
-	config.vm.define "manager" do |homologacao|
+	config.vm.define "manager" do |manager|
 
 		# Hostname da VM
 		manager.vm.hostname = "manager.localdomain"
@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	end
 
         # VM do worker1 do Cluster
-        config.vm.define "worker1" do |prod|
+        config.vm.define "worker1" do |worker1|
 
                 # Hostname da VM
                 worker1.vm.hostname = "worker1.localdomain"
@@ -72,7 +72,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
 
         # VM do worker2 do Cluster
-        config.vm.define "worker2" do |prod|
+        config.vm.define "worker2" do |worker2|
 
                 # Hostname da VM
                 worker2.vm.hostname = "worker2.localdomain"
