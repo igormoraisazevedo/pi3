@@ -44,8 +44,9 @@ echo -e "###############################################\n" >> $LOG
 
 sudo sed -i '/127.0.1.1/d' /etc/hosts
 sudo sed -i '/localdomain/d' /etc/hosts
-sudo echo  "192.168.10.10 homologacao.localdomain" >> /etc/hosts
-sudo echo  "192.168.10.20 producao.localdomain" >> /etc/hosts 
+sudo echo  "192.168.10.10 manager.localdomain" >> /etc/hosts
+sudo echo  "192.168.10.20 worker1.localdomain" >> /etc/hosts 
+sudo echo  "192.168.10.30 worker2.localdomain" >> /etc/hosts
 
 # Instalando os softwares do Ambiente
 echo -e "\n#########################################" >> $LOG
@@ -53,7 +54,7 @@ echo "####### Instalando Git e Git-Hub  #######" >> $LOG
 echo -e "#########################################\n" >> $LOG
 
 sudo apt-get install -y \
-	git \
+	git-core \
 	git-hub >> $LOG 2>&1
 
 echo -e "\n############################################################" >> $LOG
@@ -85,3 +86,16 @@ sudo apt-get -y install docker-engine >> $LOG 2>&1
 # Ativar servico do Docker
 sudo systemctl enable docker >> $LOG 2>&1
 sudo systemctl start docker >> $LOG 2>&1
+
+echo -e "\n############################################" >> $LOG
+echo "####### Instalando o Docker Compose  #######" >> $LOG
+echo -e "############################################\n" >> $LOG
+
+# Download da versao mais recente do Docker Compose (2017-03-04, versão 1.11.2)
+curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+
+# Configurar permissao do execucao para o Docker Compose
+chmod +x /usr/local/bin/docker-compose
+
+# Instalando o Bash Completion do Docker Compose
+curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
