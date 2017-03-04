@@ -1,5 +1,5 @@
 # Diretório Docker
-Diretório onde será armazenado os arquivos que será utilizados pelo ambiente de containers que será implementado no Docker
+Diretório onde será armazenado os arquivos que serão utilizados pelo ambiente de containers que será implementado no Docker
 
 Listagem de Diretórios:
  - "DOCKER_COMANDOS_.txt": *Arquivo com alguns comandos básicos do docker e lembretes.*
