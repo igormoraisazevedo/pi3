@@ -21,7 +21,7 @@ RUN apt-get clean all
 
 # A partir daqui, todos os comandos para configurar o SGBD serao executados pelo usuario postgres
 USER postgres
-RUN  systemctl start postgresql &&\
+RUN  /etc/init.d/postgresql start &&\
      psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
      createdb -O docker docker
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.6/main/pg_hba.conf
