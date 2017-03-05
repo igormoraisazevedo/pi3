@@ -1,8 +1,8 @@
-#########################################
-# Dockerfile para criar um servidor web #
-# Usando Ubuntu + Apache + PHP          #
-# Versao 1.0                            # 
-#########################################
+##################################################################
+# Dockerfile para criar um servidor de banco de dados PostgreSQL #
+# Usando Ubuntu + PostgreSQL                                     #
+# Versao 1.0                                                     # 
+##################################################################
 
 # Imagem que sera utilizada como base para a criacao da sua imagem customizada e, posteriomente, o seu container.
 FROM ubuntu:latest
@@ -11,14 +11,8 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get dist-upgrade -y
 
 # Instalar servidor web e php
-RUN apt-get -y install apache2 php libapache2-mod-php git-core 
-RUN apt-get clean all
-
-# Habilitar modulo ssl do Apache (HTTPS)
-RUN a2enmod ssl
-
-# Habilitar servico do Apache
-#RUN systemctl enable apache2 
+RUN apt-get -y install git-core
+RUN apt-get clean all 
 
 # Variaveis de Ambiente
 ENV APACHE_RUN_USER www-data
@@ -26,7 +20,7 @@ ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
 # Porta do container a ser exposta
-EXPOSE 80 443
+EXPOSE 
 
 # Comando a ser executado em toda inicializacao do container
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD 
