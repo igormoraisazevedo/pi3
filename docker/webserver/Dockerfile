@@ -17,9 +17,6 @@ RUN apt-get clean all
 # Habilitar modulo ssl do Apache (HTTPS)
 RUN a2enmod ssl
 
-# Habilitar servico do Apache
-#RUN systemctl enable apache2 
-
 # Variaveis de Ambiente
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
