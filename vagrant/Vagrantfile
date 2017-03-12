@@ -17,11 +17,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		# Configuracao da Rede e IP
 		manager.vm.network "private_network", ip: "192.168.10.10"
 		
-		# Executa script para a configuracao do ambiente de homologacao
+		# Executa script para a configuracao do ambiente
 		manager.vm.provision "shell", inline: "/bin/bash /vagrant/config_inicial.sh manager"
 		
 		# Restart da VM para efetivar as atualizacoes dos pacotes instalados
 		manager.vm.provision :reload		
+		
+		# Executa script para a configuracao do Docker Swarm
+                manager.vm.provision "shell", inline: "/bin/bash /vagrant/config_docker_swarm.sh firstmanager 192.168.10.10"		
 
 		# Configuracoes passadas ao Provisionador, neste caso o VirtualBox
 		manager.vm.provider "virtualbox" do |vbox|
@@ -53,11 +56,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 # Configuracao da Rede e IP
                 worker1.vm.network "private_network", ip: "192.168.10.20"
 
-                # Executa script para a configuracao do ambiente de homologacao
+                # Executa script para a configuracao do ambiente
                 worker1.vm.provision "shell", inline: "/bin/bash /vagrant/config_inicial.sh worker1"
 		
                 # Restart da VM para efetivar as atualizacoes dos pacotes instalados
                 worker1.vm.provision :reload
+		
+		# Executa script para a configuracao do Docker Swarm
+                worker1.vm.provision "shell", inline: "/bin/bash /vagrant/config_docker_swarm.sh worker 192.168.10.20"
 
                 # Configuracoes passadas ao Provisionador, neste caso o VirtualBox
                 worker1.vm.provider "virtualbox" do |vbox|
@@ -89,11 +95,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 # Configuracao da Rede e IP
                 worker2.vm.network "private_network", ip: "192.168.10.30"
 
-                # Executa script para a configuracao do ambiente de homologacao
+                # Executa script para a configuracao do ambiente
                 worker2.vm.provision "shell", inline: "/bin/bash /vagrant/config_inicial.sh worker2"
 
                 # Restart da VM para efetivar as atualizacoes dos pacotes instalados
                 worker2.vm.provision :reload
+		
+		# Executa script para a configuracao do Docker Swarm
+                worker2.vm.provision "shell", inline: "/bin/bash /vagrant/config_docker_swarm.sh worker 192.168.10.30"
 
                 # Configuracoes passadas ao Provisionador, neste caso o VirtualBox
                 worker2.vm.provider "virtualbox" do |vbox|
