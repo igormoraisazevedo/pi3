@@ -24,10 +24,10 @@ case $PAPEL in
 		sudo echo "$IP" > /vagrant/manager_ip
 	;;
 	"manager"|"worker")
-                if ["$PAPEL" == "manager"]
-		then 
+                if [ "$PAPEL" == "manager" ];
+		then
 			TOKEN=`cat /vagrant/manager_token`
-		elif ["$PAPEL" == "worker"]
+		elif [ "$PAPEL" == "worker" ];
 		then 
 			TOKEN=`cat /vagrant/worker_token`
 		fi
