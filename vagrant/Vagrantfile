@@ -3,6 +3,16 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
+[
+  { :name => "vagrant-reload" },
+  { :name => "vagrant-vbguest" },
+].each do |plugin|
+
+  if not Vagrant.has_plugin?(plugin[:name], plugin[:version])
+    raise "#{plugin[:name]} is required. Please run `vagrant plugin install #{plugin[:name]}`"
+  end
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# VM do Gerenciador do Cluster
