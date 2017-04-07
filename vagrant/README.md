@@ -8,6 +8,7 @@ Softwares Necessários:
 Arquivos Necessários:
 - VagrantFile - Arquivo que automatiza o provisionamento das VMs;
 - config_inicial.sh - Shell script que automatiza a instalação dos softwares necessários ao ambiente, bem como algumas configurações das VMs.
+- config_docker_swarm.sh - Shell Script que configura o cluster Docker (Docker Swarm) entre as máquinas provisionadas pelo Vagrant.
 
 Procedimento de configuracao do ambiente:
  - Faça o download dos arquivos do repositório https://github.com/igormoraisazevedo/pi3/tree/master/vagrant
