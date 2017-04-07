@@ -83,6 +83,9 @@ sudo apt-get update >> $LOG 2>&1
 # Instalar Docker
 sudo apt-get -y install docker-engine >> $LOG 2>&1
 
+# Adicionar o usuario Ubuntu ao grupo do Docker
+sudo usermod -a -G docker ubuntu
+
 # Ativar servico do Docker
 sudo systemctl enable docker >> $LOG 2>&1
 sudo systemctl start docker >> $LOG 2>&1
