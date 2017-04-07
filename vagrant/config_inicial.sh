@@ -95,7 +95,7 @@ echo "####### Instalando o Docker Compose  #######" >> $LOG
 echo -e "############################################\n" >> $LOG
 
 # Download da versao mais recente do Docker Compose (2017-03-04, versão 1.11.2)
-sudo curl -sL https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+sudo curl -sL https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 
 # Configurar permissao do execucao para o Docker Compose
 sudo chmod +x /usr/local/bin/docker-compose
@@ -104,4 +104,4 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo curl -sL https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 
 # Limpeza do cache dos pacotes
-sudo apt-get autoclean -y
+sudo apt-get autoclean -y >> $LOG 2>&1
