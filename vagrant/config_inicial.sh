@@ -37,6 +37,16 @@ sudo sed -i 's/NTPDATE_USE_NTP_CONF=yes/NTPDATE_USE_NTP_CONF=no/g' /etc/default/
 sudo sed -i 's/ntp.ubuntu.com/pool.ntp.br/g' /etc/default/ntpdate
 sudo ntpdate pool.ntp.br >> $LOG 2>&1
 
+<<<<<<< HEAD
+# Configurando LOCALE
+echo -e "\n#########################################################" >> $LOG
+echo "####### Configurando o LOCALE para PT_BR ################" >> $LOG
+echo -e "#########################################################\n" >> $LOG
+   
+sudo locale-gen pt_BR.UTF-8 >> $LOG 2>&1
+
+=======
+>>>>>>> 2f4ca9bd292c8869af1f18fa586c26859e2fcb21
 # Editar arquivo hosts das VMs
 echo -e "\n###############################################" >> $LOG
 echo "####### Configurando arquivo /etc/hosts #######" >> $LOG
@@ -95,6 +105,15 @@ echo "####### Instalando o Docker Compose  #######" >> $LOG
 echo -e "############################################\n" >> $LOG
 
 # Download da versao mais recente do Docker Compose (2017-03-04, versão 1.11.2)
+<<<<<<< HEAD
+sudo curl -sL https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose >> $LOG 2>&1
+
+# Configurar permissao do execucao para o Docker Compose
+sudo chmod +x /usr/local/bin/docker-compose >> $LOG 2>&1
+
+# Instalando o Bash Completion do Docker Compose
+sudo curl -sL https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose >> $LOG 2>&1
+=======
 sudo curl -sL https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 
 # Configurar permissao do execucao para o Docker Compose
@@ -102,6 +121,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Instalando o Bash Completion do Docker Compose
 sudo curl -sL https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+>>>>>>> 2f4ca9bd292c8869af1f18fa586c26859e2fcb21
 
 # Limpeza do cache dos pacotes
 sudo apt-get autoclean -y >> $LOG 2>&1
