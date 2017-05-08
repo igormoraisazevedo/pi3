@@ -1,0 +1,14 @@
+---
+- hosts: docker-managers
+  become: yes
+
+  tasks:
+    - name: Colocar container Webserver em execução
+      docker_container:
+        name: webserver 
+        image: webserver:v1
+        state: started
+        recreate: yes
+        ports:
+          - "80:80"
+          - "443:443"

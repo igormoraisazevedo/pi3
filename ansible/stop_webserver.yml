@@ -1,0 +1,10 @@
+---
+- hosts: docker-managers
+  become: yes
+
+  tasks:
+    - name: Parar o container Webserver.
+      docker_container:
+        name: webserver 
+        image: webserver:v1
+        state: stopped

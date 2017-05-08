@@ -1,0 +1,12 @@
+---
+- hosts: docker-managers
+  become: yes
+
+  tasks:
+    - name: Criar a imagem do Container Webserver
+      docker_image:
+        name: webserver
+        tag: v1 
+        state: present
+        build_path: /vagrant
+        dockerfile: webserver-Dockerfile

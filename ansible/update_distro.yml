@@ -1,0 +1,9 @@
+---
+- hosts: docker-managers docker-workers
+  become: yes
+  
+  tasks:
+    - name: Atualizar a distribuição
+      apt:
+       update_cache: yes
+       upgrade: dist
