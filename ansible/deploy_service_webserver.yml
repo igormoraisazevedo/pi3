@@ -6,7 +6,7 @@
     - name: Instalar dependecias do Módulo Ansible (python-apt)
       command: apt-get install python-apt -y
 
-    - name: Instalar dependecias do Módulo Ansible (python-pip, python-docker, python-yaml)
+    - name: Instalar dependencias do Módulo Ansible (python-pip, python-docker, python-yaml)
       apt:
         name: "{{ item }}"
         state: present
@@ -15,7 +15,7 @@
         - python-docker
         - python-yaml
 
-    - name: Criar a imagem do Container Webserver
+    - name: Criar a imagem do Container Webserver em todos os nós do Docker Swarm
       docker_image:
         name: webserver
         tag: v1
@@ -30,4 +30,4 @@
     - name: Criar o Service Webserver
       command: docker stack deploy -c webserver-service.yml webserver
       args:
-        chdir: /vagrant/
+        chdir: /vagrant
