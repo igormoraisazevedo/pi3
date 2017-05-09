@@ -26,7 +26,9 @@ Procedimento de configuracao do ambiente:
     1) docker-managers: *Todos os IPs das VMs que possuem a função de Manager no Docker Swarm.*
     2) docker-workers: *Todos os IPs das VMs que possuem a função de Worker no Docker Swarm.*
 
-  - Copie o Dockerfile do Webserver (docker/webserver/webserver-Dockerfile) para o diretório /vagrant da VM 'manager'.
-  - Execute o playbook create_image_webserver.yml para criar a imagem do container do Apache.
-  - Execute o playbook run_webserver.yml para criar um container a partir de imagem do webserver Apache.
-  - Para parar a execução do container webserver execute o playbook stop_webserver.yml .
+  - Copie o Dockerfile do Webserver (docker/webserver/webserver-Dockerfile) para o diretório /vagrant.
+  - Copie o Docker Composefile do service "webserver" (docker/webserver/webserver-service.yml) para o diretório /vagrant.
+  - Execute o playbook create_image_webserver.yml para criar a imagem do container do Apache (ansible-playbook create_image_webserver.yml).
+  - Execute o playbook run_webserver.yml para criar um container a partir de imagem do webserver Apache (ansible-playbook run_webserver.yml).
+  - Para parar a execução do container webserver execute o playbook stop_webserver.yml (ansible-playbook stop_webserver.yml).
+  - Para criar o service "webserver", execute o playbook deploy_service_webserver.yml (ansible-playbook deploy_service_webserver.yml).
