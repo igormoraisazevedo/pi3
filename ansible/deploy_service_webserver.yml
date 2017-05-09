@@ -1,0 +1,33 @@
+---
+- hosts: docker-managers docker-workers
+  become: yes
+
+  tasks:
+    - name: Instalar dependecias do Módulo Ansible (python-apt)
+      command: apt-get install python-apt -y
+
+    - name: Instalar dependecias do Módulo Ansible (python-pip, python-docker, python-yaml)
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - python-pip
+        - python-docker
+        - python-yaml
+
+    - name: Criar a imagem do Container Webserver
+      docker_image:
+        name: webserver
+        tag: v1
+        state: present
+        build_path: /vagrant
+        dockerfile: webserver-Dockerfile
+
+- hosts: docker-managers
+  become: yes
+  
+  tasks:  
+    - name: Criar o Service Webserver
+      command: docker stack deploy -c webserver-service.yml webserver
+      args:
+        chdir: /vagrant/

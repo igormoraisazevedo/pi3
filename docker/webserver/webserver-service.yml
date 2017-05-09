@@ -1,0 +1,10 @@
+version: '3'
+services:
+  webserver:
+    image: webserver:v1
+    deploy:
+      mode: replicated
+      replicas: 3
+    ports:
+      - "80:80"
+      - "443:443" 
