@@ -10,10 +10,9 @@
 ###### Os binários do Jenkins foram baixados diretamente do repositório oficial com os seguintes comandos:
 
 Comando para adicionar as chaves do repositório ao sistema.
-
-	```
-	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-	```
+```
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+```
 
 Em seguida adiciona o endereço do repositório do pacote no sources.list com  o comando:
 
