@@ -10,33 +10,39 @@
 ###### Os binários do Jenkins foram baixados diretamente do repositório oficial com os seguintes comandos:
 
 Comando para adicionar as chaves do repositório ao sistema.
+
 	```
-	> wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 	```
 
 Em seguida adiciona o endereço do repositório do pacote no sources.list com  o comando:
+
 	```
-	>echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+	echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
 	```
 
 Quando o repositório for adicionado, realize um update com o comando:
+
 	```
-	>sudo apt-get update
+	sudo apt-get update
 	```
   
 Ao término da atualização, finalmente o Jenkins poderá ser instalado:
+
  	```
-	>sudo apt-get install jenkins
+	sudo apt-get install jenkins
 	```
   
 Agora que as dependências e o Jenkins foram instalados com sucesso, é hora de iniciar o serviço:
+
 	```
-	>sudo systemctl start jenkins
+	sudo systemctl start jenkins
 	```
   
 Para verificar se o serviço foi iniciado com sucesso, rode o comando a seguir:
+
 	```
-	>sudo systemctl status jenkins
+	sudo systemctl status jenkins
 	```
  
 A saída deverá ser algo como abaixo:
@@ -51,26 +57,30 @@ A saída deverá ser algo como abaixo:
 ```	    
            
 Por ser um serviço onde o gerenciamento é via web, é necessário que a porta 8080, comumente utlizada por padrão seja liberada:
+
 	```
-	>sudo ufw allow 8080
+	sudo ufw allow 8080
 	```
 
 Pode verificar com o comando abaixo se a porta foi liberada com sucesso:
+
 	```
-	>sudo ufw status
+	sudo ufw status
 	```
 
 Para configurar a instalação do Jenkins, acesse o endereço via navegador web:
+
 	```
-	>http://ip_do_servidor_jenkins:8080
+	http://ip_do_servidor_jenkins:8080
 	```
   
 No primeiro acesso via navegador web, será necessário realizar o desbloqueio do diretório do Jenkins conforme figura abaixo:
 ![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/unlock-jenkins.png)
 	
 A chave do administrador que é requerida poderá ser visualizada com o seguinte comando no terminal:
+
 	```
-	>sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 	```
 
 Basta copiar os 32 caracteres e colar no campo solicitado.
