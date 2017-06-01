@@ -1,3 +1,5 @@
+[Contribution guidelines for this project](INSTALLATION.md)
+
 ## Arquivos para a utilização do Jenkins
 
 ###### Para a realização do controle de testes com o Jenkins, o ambiente utilizado foi o seguinte:
