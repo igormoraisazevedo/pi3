@@ -1,22 +1,28 @@
-Arquivos para a utilização do Jenkins
+## Arquivos para a utilização do Jenkins
 
-Para a realização do controle de testes com o Jenkins, o ambiente utilizado foi o seguinte:
+###### Para a realização do controle de testes com o Jenkins, o ambiente utilizado foi o seguinte:
 
 - 1GB de RAM
 - 12 GB de espaço em disco
 - Debian Jessie v.8.7.1 (x64)
 - Jenkins 2.46.2 - Última versão até o momento da realização da instalação
 
-Os binários do Jenkins foram baixados diretamente do repositório oficial com os seguintes comandos:
+###### Os binários do Jenkins foram baixados diretamente do repositório oficial com os seguintes comandos:
 
 Comando para adicionar as chaves do repositório ao sistema.
+	```
 	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+	```
 
 Em seguida adiciona o endereço do repositório do pacote no sources.list com  o comando:
+	```
 	echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+	```
 
 Quando o repositório for adicionado, realize um update com o comando:
+	```
 	sudo apt-get update
+	```
   
 Ao término da atualização, finalmente o Jenkins poderá ser instalado:
  	sudo apt-get install jenkins
