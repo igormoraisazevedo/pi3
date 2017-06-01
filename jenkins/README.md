@@ -53,17 +53,19 @@ A chave do administrador que é requerida poderá ser visualizada com o seguinte
 
 Basta copiar os 32 caracteres e colar no campo solicitado.
 Em seguida será solicitado o tipo de configuração desejada:
-
+![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-customize.png)
 
 Poderá ser escolhido o modo padrão clicando em “Install suggested plugins”, serão instalados os plugins padrões para o Jenkins dentre eles o de integração do Git, Docker, Java, Ldap dentre outros vários. Se souber exatamente os plugins que deseja instalar, selecione a opção “Select plugins to install” e na tela seguinte será questionado sobre quais os plugins que deseja instalar.
 
 Selecionando a opção default, será exibida a tela com o progresso da instalação dos plugins:
-
+![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-plugins.png)
 
 Ao término da instalação dos plugins, será redirecionado para a tela de criação do primeiro usário:
+![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-first-admin.png)
 
+Ao informar os dados solicitados, basta clicar em “Save and Finish”.
 
-
-Ao informar os dados colicitado, basta clicar em “Save and Finish”.
+Essa é a tela de confirmação do sucesso das configurações.
+![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-ready.png)
 
 
