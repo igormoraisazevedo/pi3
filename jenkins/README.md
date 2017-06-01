@@ -60,12 +60,13 @@ Poderá ser escolhido o modo padrão clicando em “Install suggested plugins”
 Selecionando a opção default, será exibida a tela com o progresso da instalação dos plugins:
 ![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-plugins.png)
 
-Ao término da instalação dos plugins, será redirecionado para a tela de criação do primeiro usário:
+Ao término da instalação dos plugins, será redirecionado para a tela de criação do primeiro usuário:
 ![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-first-admin.png)
 
 Ao informar os dados solicitados, basta clicar em “Save and Finish”.
 
 Essa é a tela de confirmação do sucesso das configurações.
 ![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-ready.png)
+![alt text](https://assets.digitalocean.com/articles/jenkins-install-ubuntu-1604/jenkins-using.png)
 
 
